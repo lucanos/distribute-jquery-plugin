@@ -41,7 +41,7 @@
             // Cannot add Current Item to Row - too wide.
             // Process this row
             var widthRemainder = totalWidth-rowContentsWidth+options.margin;
-            var perElement = Math.floor( options.margin+( widthRemainder/( $rowItems.length-1 ) ) );
+            var perElement = ( Math.floor( ( options.margin+( widthRemainder/( $rowItems.length-1 ) ) )*10 ) / 10 );
             var leftOver = widthRemainder-( perElement*( $rowItems.length-1 ) );
             
             $rowItems
@@ -84,7 +84,7 @@
           .last()
             .css({
               marginRight : 0 ,
-              marginLeft : leftOver
+              marginLeft : Math.max( 0 , leftOver )
             });
       
       }
